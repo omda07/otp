@@ -1,12 +1,18 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:otp/otp.dart';
-import 'package:otp/otp_screen.dart';
+import 'package:provider/provider.dart';
+import 'controller/otp_controller.dart';
+import 'screens/otp_screens/otp_screen.dart';
 
-Future<void> main() async{
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(const MyApp());
+
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider<OtpController>(
+      create: (_) => OtpController(),
+    ),
+  ], child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -16,13 +22,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'OTP',
       theme: ThemeData(
-
         primarySwatch: Colors.purple,
       ),
-      home:  OtpScreen() ,
+      home: const OtpScreen(),
     );
   }
 }
-
