@@ -28,7 +28,7 @@ class Otp extends StatelessWidget {
 
       appBar: AppBar(
         title: const Text('OTP Verification'),
-        backgroundColor: Colors.teal[800],
+
       ),
       body: Consumer<OtpController>(
         builder: (context, value, child) {

@@ -16,7 +16,7 @@ class _OtpScreenState extends State<OtpScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black45,
+
         title: const Text('Phone Authentication'),
       ),
       body: Consumer<OtpController>(
